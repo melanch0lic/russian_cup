@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:russia_icpc/presentation/pages/courses_page/components/all_courses_container.dart';
 import 'package:russia_icpc/presentation/pages/courses_page/components/direction_progress_container.dart';
 import 'package:russia_icpc/presentation/pages/courses_page/components/total_progress_container.dart';
+import 'package:russia_icpc/presentation/widgets/user_exit_info_widget.dart';
 
 class CoursesPage extends StatelessWidget {
   const CoursesPage({super.key});
@@ -12,14 +14,11 @@ class CoursesPage extends StatelessWidget {
         backgroundColor: const Color.fromRGBO(246, 247, 249, 1),
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(32),
+            padding: const EdgeInsets.all(36),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Курсы',
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
-                ),
+                const UserInfoExitWidget(),
                 const SizedBox(height: 36),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,22 +29,16 @@ class CoursesPage extends StatelessWidget {
                       child: Column(
                         children: [
                           Container(
-                            padding: const EdgeInsets.only(
-                                left: 24, right: 24, top: 32, bottom: 36),
+                            padding: const EdgeInsets.only(left: 24, right: 24, top: 32, bottom: 36),
                             width: double.infinity,
                             decoration: const BoxDecoration(
-                                color: Colors.white,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(24))),
+                                color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(24))),
                             child: const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
                                   'Успеваемость по направлениям',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.w600),
+                                  style: TextStyle(color: Colors.black, fontSize: 24, fontWeight: FontWeight.w600),
                                 ),
                                 SizedBox(height: 24),
                                 DirectionProgreessContainer(),

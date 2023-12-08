@@ -10,32 +10,25 @@ class SideMenuItem extends StatelessWidget {
   final String svgUrl;
   final String title;
   const SideMenuItem(
-      {super.key,
-      required this.index,
-      required this.isActive,
-      required this.svgUrl,
-      required this.title});
+      {super.key, required this.index, required this.isActive, required this.svgUrl, required this.title});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => context.read<TabsCubit>().changeIndex(index),
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
         decoration: BoxDecoration(
-            color: isActive ? Color.fromRGBO(246, 247, 250, 1) : null,
-            borderRadius: BorderRadius.circular(12)),
+            color: isActive ? const Color.fromRGBO(246, 247, 250, 1) : null, borderRadius: BorderRadius.circular(12)),
         child: Row(children: [
           SvgPicture.asset(
             svgUrl,
-            color: isActive
-                ? Color.fromRGBO(55, 114, 255, 1)
-                : Color.fromRGBO(58, 61, 68, 1),
+            color: isActive ? const Color.fromRGBO(55, 114, 255, 1) : const Color.fromRGBO(58, 61, 68, 1),
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               color: Color(0xFF3A3D44),
               fontSize: 16,
               fontFamily: 'Open Sans',
