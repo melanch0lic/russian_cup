@@ -126,7 +126,7 @@ class _LoginButton extends StatelessWidget {
         ),
         backgroundColor: const Color.fromRGBO(55, 114, 255, 1),
       ),
-      onPressed: () {},
+      onPressed: () => Navigator.pushReplacementNamed(context, '/tabs'),
       child: const Center(
           child: Padding(
         padding: EdgeInsets.symmetric(vertical: 12, horizontal: 24),

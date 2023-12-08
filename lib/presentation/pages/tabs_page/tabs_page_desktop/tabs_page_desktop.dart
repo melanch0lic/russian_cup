@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:russia_icpc/presentation/pages/courses_page/courses_page.dart';
+import 'package:russia_icpc/presentation/pages/home_page/home_page.dart';
 
 import '../state/module.dart';
 import 'components/side_menu.dart';
@@ -7,8 +9,7 @@ import 'components/side_menu.dart';
 class TabsPageDesktop extends StatelessWidget {
   const TabsPageDesktop({super.key});
 
-  static Page<void> page() =>
-      const MaterialPage<void>(child: TabsPageDesktop());
+  static Page<void> page() => const MaterialPage<void>(child: TabsPageDesktop());
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class TabsPageDesktop extends StatelessWidget {
                   color: const Color.fromRGBO(246, 247, 249, 1),
                   child: PageView(
                     physics: const NeverScrollableScrollPhysics(),
-                    children: const [],
+                    children: const [CoursesPage(), HomePage()],
                   )))
         ],
       )),

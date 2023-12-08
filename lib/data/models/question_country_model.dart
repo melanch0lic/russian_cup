@@ -25,8 +25,7 @@ class QuestionCountryModel extends Equatable {
   @override
   List<Object?> get props => [id, name, imageUrl, correctName];
 
-  factory QuestionCountryModel.fromJson(Map<String, dynamic> json) =>
-      _$QuestionCountryModelFromJson(json);
+  factory QuestionCountryModel.fromJson(Map<String, dynamic> json) => _$QuestionCountryModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$QuestionCountryModelToJson(this);
 }
