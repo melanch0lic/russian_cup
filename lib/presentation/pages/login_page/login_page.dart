@@ -174,8 +174,7 @@ class _LoginButton extends StatelessWidget {
         ),
         onPressed: state.isValid
             ? () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => TabsPage()));
+                Navigator.pushReplacementNamed(context, '/tabs');
               }
             : null,
         child: const Center(
