@@ -63,4 +63,10 @@ class LoginCubit extends Cubit<LoginState> {
       emit(state.copyWith(status: FormzSubmissionStatus.failure));
     }
   }
+
+  void togglePasswordVisibility() {
+    emit(state.copyWith(
+      isPasswordVisible: !state.isPasswordObscure,
+    ));
+  }
 }
