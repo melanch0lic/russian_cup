@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:russia_icpc/domain/repository/auth_repository.dart';
 import 'package:russia_icpc/presentation/pages/sign_up_page/sign_up_page.dart';
 
+import '../tabs_page/tabs_page.dart';
 import 'cubit/login_cubit.dart';
 
 class LoginPage extends StatelessWidget {
@@ -171,7 +172,12 @@ class _LoginButton extends StatelessWidget {
           ),
           backgroundColor: const Color.fromRGBO(55, 114, 255, 1),
         ),
-        onPressed: state.isValid ? () {} : null,
+        onPressed: state.isValid
+            ? () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => TabsPage()));
+              }
+            : null,
         child: const Center(
             child: Padding(
           padding: EdgeInsets.symmetric(vertical: 12, horizontal: 24),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:russia_icpc/presentation/pages/tabs_page/cubit/tabs_cubit.dart';
 
-import '../state/module.dart';
 import 'components/side_menu.dart';
 
 class TabsPageDesktop extends StatelessWidget {
@@ -21,10 +22,30 @@ class TabsPageDesktop extends StatelessWidget {
           Expanded(
               flex: 5,
               child: Container(
-                  color: const Color.fromRGBO(246, 247, 249, 1),
+                  color: Color.fromRGBO(236, 239, 243, 1),
                   child: PageView(
+                    controller: context.read<TabsCubit>().controller,
                     physics: const NeverScrollableScrollPhysics(),
-                    children: const [],
+                    children: const [
+                      Center(
+                        child: Text('Главная'),
+                      ),
+                      Center(
+                        child: Text('Профиль'),
+                      ),
+                      Center(
+                        child: Text('Результаты'),
+                      ),
+                      Center(
+                        child: Text('Регистрация'),
+                      ),
+                      Center(
+                        child: Text('Админка'),
+                      ),
+                      Center(
+                        child: Text('Ещё нет аккаунта?'),
+                      )
+                    ],
                   )))
         ],
       )),
