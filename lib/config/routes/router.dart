@@ -1,4 +1,5 @@
 import 'package:fluro/fluro.dart';
+import 'package:russia_icpc/presentation/pages/age_page/age_page.dart';
 
 import '../../presentation/pages/empty_route_page/empty_route_page.dart';
 // import '../../presentation/pages/home_page/home_page.dart';
@@ -16,6 +17,8 @@ class CustomRouter {
   //     Handler(handlerFunc: (context, parameters) => const HomePage());
   static final Handler _loginHandler =
       Handler(handlerFunc: (context, parameters) => const LoginPage());
+  static final Handler _ageHanler =
+      Handler(handlerFunc: (context, parameters) => const AgePage());
 
   static void setupRouter() {
     router.define('/',
@@ -26,5 +29,7 @@ class CustomRouter {
     //     handler: _homeHandler, transitionType: TransitionType.fadeIn);
     router.define('/login',
         handler: _loginHandler, transitionType: TransitionType.fadeIn);
+    router.define('/ageconfirm',
+        handler: _ageHanler, transitionType: TransitionType.fadeIn);
   }
 }
