@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 
 import '../../../../data/src/auth_exceptions.dart';
+import '../../../../domain/entities/confirmed_password.dart';
 import '../../../../domain/entities/email.dart';
 import '../../../../domain/entities/password.dart';
 import '../../../../domain/repository/auth_repository.dart';
