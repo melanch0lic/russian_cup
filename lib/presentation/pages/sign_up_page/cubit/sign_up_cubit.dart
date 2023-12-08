@@ -28,9 +28,9 @@ class SignUpCubit extends Cubit<SignUpState> {
         isValid: Formz.validate([
               email,
               state.password,
-              //state.confirmedPassword,
+              state.confirmedPassword,
             ]) &&
-            state.fio.isNotEmpty,
+            state.isServiceTermes,
       ),
     );
   }
@@ -39,40 +39,47 @@ class SignUpCubit extends Cubit<SignUpState> {
     if (value.isEmpty) {
       emit(state.copyWith(
           password: const Password.pure(),
-          // confirmedPassword: state.confirmedPassword.value.isEmpty ? const ConfirmedPassword.pure() : null,
+          confirmedPassword: state.confirmedPassword.value.isEmpty
+              ? const ConfirmedPassword.pure()
+              : null,
           isValid: false));
       return;
     }
     final password = Password.dirty(value);
+    final confirmedPassword = ConfirmedPassword.dirty(
+      password: password.value,
+      value: state.confirmedPassword.value,
+    );
     emit(
       state.copyWith(
         password: password,
-        //  confirmedPassword: confirmedPassword,
+        confirmedPassword: confirmedPassword,
         isValid: Formz.validate([
               state.email,
               password,
+              confirmedPassword,
             ]) &&
-            state.fio.isNotEmpty,
+            state.isServiceTermes,
       ),
     );
   }
 
-  void fioChanged(String value) {
-    if (value.isEmpty) {
-      emit(state.copyWith(
-          fio: '',
-          // confirmedPassword: state.confirmedPassword.value.isEmpty ? const ConfirmedPassword.pure() : null,
-          isValid: false));
-      return;
-    }
-    emit(state.copyWith(
-      fio: value,
-      isValid: Formz.validate([
-            state.email,
-            state.password,
-          ]) &&
-          state.fio.isNotEmpty,
-    ));
+  void confirmedPasswordChanged(String value) {
+    final confirmedPassword = ConfirmedPassword.dirty(
+      password: state.password.value,
+      value: value,
+    );
+    emit(
+      state.copyWith(
+        confirmedPassword: confirmedPassword,
+        isValid: Formz.validate([
+              state.email,
+              state.password,
+              confirmedPassword,
+            ]) &&
+            state.isServiceTermes,
+      ),
+    );
   }
 
   Future<void> signUpFormSubmitted() async {
@@ -94,5 +101,29 @@ class SignUpCubit extends Cubit<SignUpState> {
     } catch (_) {
       emit(state.copyWith(status: FormzSubmissionStatus.failure));
     }
+  }
+
+  void togglePasswordVisibility() {
+    emit(state.copyWith(
+      isPasswordVisible: !state.isPasswordObscure,
+    ));
+  }
+
+  void togglePasswordConfirmationVisibility() {
+    emit(state.copyWith(
+      isConfirmedPasswordVisible: !state.isConfirmedPasswordObscure,
+    ));
+  }
+
+  void toggleServiceTermes() {
+    emit(state.copyWith(
+      isValid: Formz.validate([
+            state.email,
+            state.password,
+            state.confirmedPassword,
+          ]) &&
+          !state.isServiceTermes,
+      isServiceTermes: !state.isServiceTermes,
+    ));
   }
 }
