@@ -23,7 +23,7 @@ class SideMenuItem extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20),
         decoration: BoxDecoration(
-            color: isActive ? Colors.white : null,
+            color: isActive ? Color.fromRGBO(246, 247, 250, 1) : null,
             borderRadius: BorderRadius.circular(12)),
         child: Row(children: [
           SvgPicture.asset(

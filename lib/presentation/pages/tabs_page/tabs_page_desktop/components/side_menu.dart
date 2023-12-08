@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:russia_icpc/app_bloc.dart';
 import 'package:russia_icpc/presentation/pages/tabs_page/cubit/tabs_cubit.dart';
 
 import '../../cubit/tabs_state.dart';
@@ -13,7 +14,7 @@ class SideMenu extends StatelessWidget {
     final theme = Theme.of(context);
     return Container(
       decoration: const BoxDecoration(
-          color: const Color.fromRGBO(246, 247, 249, 1),
+          color: Colors.white,
           borderRadius: BorderRadius.only(
               bottomRight: Radius.circular(20), topRight: Radius.circular(20))),
       child: Padding(
@@ -67,7 +68,9 @@ class SideMenu extends StatelessWidget {
                 height: 40,
                 width: 160,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.read<AppBloc>().add(AppLogoutRequested());
+                  },
                   style: ElevatedButton.styleFrom(
                     side: const BorderSide(
                         width: 2, color: Color.fromRGBO(107, 78, 255, 1)),

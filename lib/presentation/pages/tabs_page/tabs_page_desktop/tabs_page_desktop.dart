@@ -10,7 +10,8 @@ import 'components/side_menu.dart';
 class TabsPageDesktop extends StatelessWidget {
   const TabsPageDesktop({super.key});
 
-  static Page<void> page() => const MaterialPage<void>(child: TabsPageDesktop());
+  static Page<void> page() =>
+      const MaterialPage<void>(child: TabsPageDesktop());
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,10 @@ class TabsPageDesktop extends StatelessWidget {
                   child: PageView(
                     controller: context.read<TabsCubit>().controller,
                     physics: const NeverScrollableScrollPhysics(),
-                    children: const [CoursesPage(), HomePage()],
+                    children: const [
+                      HomePage(),
+                      CoursesPage(),
+                    ],
                   )))
         ],
       )),
