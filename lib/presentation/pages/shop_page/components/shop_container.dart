@@ -24,7 +24,7 @@ class ShopContainer extends StatelessWidget {
               maxCrossAxisExtent: 400,
               mainAxisSpacing: 24,
               crossAxisSpacing: 24,
-              childAspectRatio: 1,s
+              childAspectRatio: 1,
             ),
             shrinkWrap: true,
             physics: const ScrollPhysics(),
