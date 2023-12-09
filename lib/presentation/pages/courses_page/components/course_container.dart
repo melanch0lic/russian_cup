@@ -15,7 +15,7 @@ class CourseContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         padding: const EdgeInsets.all(16),
-        margin: EdgeInsets.only(bottom: 16),
+        margin: const EdgeInsets.only(bottom: 16),
         width: double.infinity,
         decoration: const BoxDecoration(
             color: Color.fromRGBO(246, 247, 250, 1),
@@ -24,7 +24,7 @@ class CourseContainer extends StatelessWidget {
           Container(
             width: 128,
             height: 128,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/images/test_1.png'),
                 fit: BoxFit.fill,
@@ -95,7 +95,7 @@ class CourseContainer extends StatelessWidget {
                           ),
                           const SizedBox(width: 8),
                           Text('${course.progress}%',
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: Color.fromRGBO(58, 61, 68, 1),
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600))
