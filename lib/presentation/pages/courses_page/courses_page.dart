@@ -19,7 +19,7 @@ class CoursesPage extends StatelessWidget {
       create: (context) => CoursesCubit(context.read<CoursesRepository>()),
       child: BlocBuilder<CoursesCubit, CoursesState>(
         builder: (context, state) => state.pageMode == PageMode.detail
-            ? ContentCoursePage()
+            ? DescriptionCoursePage()
             : Scaffold(
                 backgroundColor: const Color.fromRGBO(246, 247, 249, 1),
                 body: SingleChildScrollView(
