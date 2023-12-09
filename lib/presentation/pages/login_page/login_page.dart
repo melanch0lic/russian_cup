@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:russia_icpc/domain/repository/auth_repository.dart';
 import 'package:russia_icpc/presentation/pages/sign_up_page/sign_up_page.dart';
-import 'package:russia_icpc/presentation/pages/tabs_page/tabs_page.dart';
 
 import 'cubit/login_cubit.dart';
 
@@ -26,7 +25,8 @@ class LoginPage extends StatelessWidget {
           backgroundColor: Colors.transparent,
           body: Center(
             child: Container(
-              padding: const EdgeInsets.only(right: 32, left: 32, top: 32, bottom: 36),
+              padding: const EdgeInsets.only(
+                  right: 32, left: 32, top: 32, bottom: 36),
               width: 444,
               decoration: BoxDecoration(
                 borderRadius: (BorderRadius.circular(20)),
@@ -36,29 +36,37 @@ class LoginPage extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Center(child: Text('Вход', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700))),
+                  const Center(
+                      child: Text('Вход',
+                          style: TextStyle(
+                              fontSize: 24, fontWeight: FontWeight.w700))),
                   const SizedBox(height: 16),
                   Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                     const Text('Ещё нет аккаунта?'),
                     TextButton(
-                      onPressed: () =>
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => const SignUpPage())),
+                      onPressed: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                              builder: (context) => const SignUpPage())),
                       child: const Text('Создайте его',
                           style: TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.w600, color: Color.fromRGBO(55, 114, 255, 1))),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              color: Color.fromRGBO(55, 114, 255, 1))),
                     )
                   ]),
                   const SizedBox(height: 36),
                   const Text(
                     'Email',
-                    style: TextStyle(color: Color.fromRGBO(107, 110, 117, 1), fontSize: 14),
+                    style: TextStyle(
+                        color: Color.fromRGBO(107, 110, 117, 1), fontSize: 14),
                   ),
                   const SizedBox(height: 8),
                   _EmailInput(),
                   const SizedBox(height: 24),
                   const Text(
                     'Пароль',
-                    style: TextStyle(color: Color.fromRGBO(107, 110, 117, 1), fontSize: 14),
+                    style: TextStyle(
+                        color: Color.fromRGBO(107, 110, 117, 1), fontSize: 14),
                   ),
                   const SizedBox(height: 8),
                   _PasswordInput(),
@@ -69,7 +77,9 @@ class LoginPage extends StatelessWidget {
                           onTap: () {},
                           child: const Text('Забыли пароль?',
                               style: TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.w600, color: Color.fromRGBO(55, 114, 255, 1)))),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color.fromRGBO(55, 114, 255, 1)))),
                     ],
                   ),
                   const SizedBox(height: 36),
@@ -94,9 +104,11 @@ class _EmailInput extends StatelessWidget {
           onChanged: (value) => context.read<LoginCubit>().emailChanged(value),
           decoration: InputDecoration(
             isDense: true,
-            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
             enabledBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: Color.fromRGBO(211, 213, 218, 1)),
+                borderSide:
+                    const BorderSide(color: Color.fromRGBO(211, 213, 218, 1)),
                 borderRadius: BorderRadius.circular(8)),
             focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(
@@ -105,7 +117,8 @@ class _EmailInput extends StatelessWidget {
                         : const Color.fromRGBO(55, 114, 255, 1)),
                 borderRadius: BorderRadius.circular(8)),
             hintText: 'example@mail.ru',
-            hintStyle: const TextStyle(fontSize: 16, color: Color.fromRGBO(211, 213, 218, 1)),
+            hintStyle: const TextStyle(
+                fontSize: 16, color: Color.fromRGBO(211, 213, 218, 1)),
           ),
         ),
       ),
@@ -120,11 +133,13 @@ class _PasswordInput extends StatelessWidget {
       height: 48,
       child: BlocBuilder<LoginCubit, LoginState>(
         builder: (context, state) => TextField(
-          onChanged: (value) => context.read<LoginCubit>().passwordChanged(value),
+          onChanged: (value) =>
+              context.read<LoginCubit>().passwordChanged(value),
           obscureText: state.isPasswordObscure,
           decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: Color.fromRGBO(211, 213, 218, 1)),
+                borderSide:
+                    const BorderSide(color: Color.fromRGBO(211, 213, 218, 1)),
                 borderRadius: BorderRadius.circular(8)),
             focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(
@@ -133,9 +148,11 @@ class _PasswordInput extends StatelessWidget {
                         : const Color.fromRGBO(55, 114, 255, 1)),
                 borderRadius: BorderRadius.circular(8)),
             hintText: '········',
-            hintStyle: const TextStyle(fontSize: 16, color: Color.fromRGBO(211, 213, 218, 1)),
+            hintStyle: const TextStyle(
+                fontSize: 16, color: Color.fromRGBO(211, 213, 218, 1)),
             suffixIcon: InkWell(
-                onTap: () => context.read<LoginCubit>().togglePasswordVisibility(),
+                onTap: () =>
+                    context.read<LoginCubit>().togglePasswordVisibility(),
                 child: const Icon(Icons.lock_outline)),
           ),
         ),
@@ -165,11 +182,20 @@ class _LoginButton extends StatelessWidget {
           ),
           backgroundColor: const Color.fromRGBO(55, 114, 255, 1),
         ),
-        onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => const TabsPage())),
+        onPressed: state.isValid
+            ? () {
+                // context.read<LoginCubit>().logInWithCredentials();
+                Navigator.pushReplacementNamed(context, '/tabs');
+              }
+            : null,
         child: const Center(
             child: Padding(
           padding: EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-          child: Text('Войти', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: Colors.white)),
+          child: Text('Войти',
+              style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white)),
         )),
       ),
     );

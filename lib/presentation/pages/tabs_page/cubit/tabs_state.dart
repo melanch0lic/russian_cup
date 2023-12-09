@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 final class TabsState extends Equatable {
-  const TabsState({this.selectedIndex = 0});
+  const TabsState({this.selectedIndex = 1});
 
   final int selectedIndex;
 

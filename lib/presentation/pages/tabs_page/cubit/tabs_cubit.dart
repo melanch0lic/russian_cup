@@ -7,7 +7,7 @@ class TabsCubit extends Cubit<TabsState> {
   late final PageController controller;
 
   TabsCubit() : super(const TabsState()) {
-    controller = PageController();
+    controller = PageController(initialPage: 1);
   }
 
   void changeIndex(int index) {
