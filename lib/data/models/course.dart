@@ -4,13 +4,23 @@ part 'course.g.dart';
 
 @JsonSerializable()
 class Course {
+  @JsonKey(name: 'course-id')
   final int id;
-  final int age;
   final String name;
   final String description;
-  final String urlImage;
+  @JsonKey(name: 'url')
+  final String url;
+  @JsonKey(name: 'course-difficulty')
+  final int difficulty;
+  final int progress;
 
-  Course({required this.id, required this.age, required this.name, required this.description, required this.urlImage});
+  Course(
+      {required this.id,
+      required this.name,
+      required this.description,
+      required this.url,
+      required this.difficulty,
+      required this.progress});
 
   factory Course.fromJson(Map<String, dynamic> json) => _$CourseFromJson(json);
 }

@@ -11,9 +11,9 @@ part 'api_client.g.dart';
 abstract class ApiClient {
   factory ApiClient(Dio dio, {String baseUrl}) = _ApiClient;
 
-  @POST('auth/sign-up/')
+  @POST('auth/sign-up')
   Future<AuthResponse> signUp(@Body() SignUpBodyRequest body);
 
-  @POST('auth/sign-in/')
+  @POST('auth/sign-in')
   Future<AuthResponse> logIn(@Body() SignInBodyRequest body);
 }

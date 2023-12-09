@@ -184,7 +184,8 @@ class _LoginButton extends StatelessWidget {
         ),
         onPressed: state.isValid
             ? () {
-                context.read<LoginCubit>().logInWithCredentials();
+                // context.read<LoginCubit>().logInWithCredentials();
+                Navigator.pushReplacementNamed(context, '/tabs');
               }
             : null,
         child: const Center(
