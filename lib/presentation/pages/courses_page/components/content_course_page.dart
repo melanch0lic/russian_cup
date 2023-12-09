@@ -4,8 +4,8 @@ import 'package:russia_icpc/presentation/pages/courses_page/components/course_de
 import 'package:russia_icpc/presentation/pages/courses_page/components/course_info_and_begin.dart';
 import 'package:russia_icpc/presentation/widgets/user_exit_info_widget.dart';
 
-class ContentCoursePage extends StatelessWidget {
-  const ContentCoursePage({super.key});
+class DescriptionCoursePage extends StatelessWidget {
+  const DescriptionCoursePage({super.key});
 
   @override
   Widget build(BuildContext context) {
