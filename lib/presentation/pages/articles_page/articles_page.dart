@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:russia_icpc/presentation/pages/courses_page/components/all_courses_container.dart';
+import 'package:russia_icpc/presentation/pages/articles_page/components/all_articles_container.dart';
+import 'package:russia_icpc/presentation/pages/articles_page/components/popular_authors_container.dart';
 import 'package:russia_icpc/presentation/widgets/user_exit_info_widget.dart';
 
 class ArticlesPage extends StatelessWidget {
@@ -7,6 +8,59 @@ class ArticlesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authorList = [
+      Author(
+        assetImage: 'assets/images/alex.jpeg',
+        name: 'Alex Oxlaid Chamberlain',
+        countArticles: '2 статьи',
+      ),
+      Author(
+        assetImage: 'assets/images/harry.jpg',
+        name: 'Harry Maguire',
+        countArticles: '127 статей',
+      ),
+      Author(
+        assetImage: 'assets/images/bully.jpg',
+        name: 'Bully Maguire',
+        countArticles: '77 статей',
+      ),
+      Author(
+        assetImage: 'assets/images/pavel.jpg',
+        name: 'Pavel Durov',
+        countArticles: '1336 статей',
+      ),
+    ];
+    final articlesList = [
+      Article(
+          assetImage: 'assets/images/article_1.png',
+          title: 'Как работает хэширование',
+          description:
+              'Хэш-функции применяются в базах данных для оптимизации запросов, в структурах данных для ускорения работы, в безопасности для защиты данных. Почти каждое взаимодействие с технологией включает в себя хэш-функции.',
+          date: '12.09.2023'),
+      Article(
+          assetImage: 'assets/images/article_2.png',
+          title: 'Манифест информационной безопасности',
+          description:
+              'Когда в какой-либо индустрии происходит технологический скачок, мы быстро к этому привыкаем и уже с удивлением и легким ужасом вспоминаем “как оно было раньше”.',
+          date: '07.05.2023'),
+      Article(
+          assetImage: 'assets/images/article_3.png',
+          title: 'Что такое браузерный сэндбоксинг?',
+          description:
+              'В стремительно меняющихся условиях современного цикла веб-разработки одним из самых серьёзных вопросов для разработчиков и тестеров становится безопасность. Сложность создания и развёртывания современных...',
+          date: '08.08.2023'),
+      Article(
+          assetImage: 'assets/images/article_4.png',
+          title: 'Как бороться с киберпреступлениями, извлекая при этом неплохую прибыль',
+          description: 'Зло «борется» со злом или как одни преступники делают вид, что борются с другими.',
+          date: '07.05.2023'),
+      Article(
+          assetImage: 'assets/images/article_5.png',
+          title: 'Испытание по криминалистической экспертизе дампа .NET',
+          description:
+              'Это испытание с MetaCTF CyberGames 2021, в рамках которого нужно было выполнить криминалистическую экспертизу дампа памяти .NET.',
+          date: '12.05.2023')
+    ];
     return Scaffold(
         backgroundColor: const Color.fromRGBO(246, 247, 249, 1),
         body: SingleChildScrollView(
@@ -15,164 +69,14 @@ class ArticlesPage extends StatelessWidget {
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   const UserInfoExitWidget(),
                   const SizedBox(height: 36),
-                  Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                    Expanded(
-                        flex: 2,
-                        child: Container(
-                            padding: const EdgeInsets.only(left: 24, right: 24, top: 32, bottom: 36),
-                            width: double.infinity,
-                            decoration: const BoxDecoration(
-                                color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(24))),
-                            child: const Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(
-                                    'Статьи',
-                                    style: TextStyle(
-                                        color: Color.fromRGBO(29, 31, 36, 1),
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 24),
-                                  ),
-                                  SizedBox(height: 24),
-                                  Row(
-                                    children: [
-                                      Text('Все статьи',
-                                          style: TextStyle(
-                                              color: Color.fromRGBO(29, 31, 36, 1),
-                                              fontWeight: FontWeight.w600,
-                                              fontSize: 16)),
-                                      SizedBox(width: 24),
-                                      Text('Руководства',
-                                          style: TextStyle(
-                                              color: Color.fromRGBO(29, 31, 36, 1),
-                                              fontWeight: FontWeight.w600,
-                                              fontSize: 16)),
-                                      SizedBox(width: 24),
-                                      Text('Ликбез',
-                                          style: TextStyle(
-                                              color: Color.fromRGBO(29, 31, 36, 1),
-                                              fontWeight: FontWeight.w600,
-                                              fontSize: 16)),
-                                      SizedBox(width: 24),
-                                      Text('Истории',
-                                          style: TextStyle(
-                                              color: Color.fromRGBO(29, 31, 36, 1),
-                                              fontWeight: FontWeight.w600,
-                                              fontSize: 16)),
-                                    ],
-                                  ),
-                                  SizedBox(height: 24),
-                                  ArticleContainer(),
-                                  SizedBox(height: 24),
-                                  ArticleContainer(),
-                                  SizedBox(height: 24),
-                                  ArticleContainer(),
-                                ]))),
-                    const SizedBox(width: 24),
-                    Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.only(left: 24, right: 24, top: 32, bottom: 36),
-                        width: double.infinity,
-                        decoration: const BoxDecoration(
-                            color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(24))),
-                        child: const Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Последние утечки данных',
-                              style: TextStyle(
-                                  color: Color.fromRGBO(29, 31, 36, 1), fontWeight: FontWeight.w600, fontSize: 24),
-                            ),
-                            SizedBox(height: 24),
-                            LeakContainer(),
-                            SizedBox(height: 16),
-                            LeakContainer(),
-                            SizedBox(height: 16),
-                            LeakContainer(),
-                            SizedBox(height: 16),
-                            LeakContainer(),
-                          ],
-                        ),
-                      ),
-                    )
-                  ])
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(flex: 2, child: AllArticlesContainer(articlesList: articlesList)),
+                      const SizedBox(width: 24),
+                      Expanded(child: PopularAuthorsContainer(authorList: authorList))
+                    ],
+                  )
                 ]))));
-  }
-}
-
-class LeakContainer extends StatelessWidget {
-  const LeakContainer({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Row(
-      children: [
-        CircleAvatar(
-          radius: 32,
-          backgroundImage: AssetImage('assets/images/del.png'),
-        ),
-        SizedBox(width: 16),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Delivery Club',
-                style: TextStyle(color: Color.fromRGBO(29, 31, 36, 1), fontWeight: FontWeight.w600, fontSize: 20)),
-            SizedBox(height: 4),
-            Text('2.2 млн заказов',
-                style: TextStyle(color: Color.fromRGBO(29, 31, 36, 1), fontWeight: FontWeight.w400, fontSize: 18)),
-          ],
-        )
-      ],
-    );
-  }
-}
-
-class ArticleContainer extends StatelessWidget {
-  const ArticleContainer({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        padding: const EdgeInsets.all(16),
-        width: double.infinity,
-        decoration: const BoxDecoration(
-            color: Color.fromRGBO(246, 247, 250, 1), borderRadius: BorderRadius.all(Radius.circular(16))),
-        child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Container(
-            width: 128,
-            height: 128,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/images/test_1.png'),
-                fit: BoxFit.fill,
-              ),
-            ),
-          ),
-          const SizedBox(width: 16),
-          const Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Как работает хэширование',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Color.fromRGBO(29, 31, 36, 1),
-                    )),
-                SizedBox(height: 12),
-                Text(
-                  'Хэш-функции применяются в базах данных для оптимизации запросов,в структурах данных для ускорения работы, в безопасности для защиты данных. Почти каждое взаимодействие с технологией включает в себя хэш-функции.',
-                  maxLines: 3,
-                  style: TextStyle(fontSize: 16, color: Color.fromRGBO(107, 110, 117, 1)),
-                ),
-                SizedBox(height: 12),
-                Text('9.12.2023',
-                    style:
-                        TextStyle(color: Color.fromRGBO(163, 165, 171, 1), fontSize: 14, fontWeight: FontWeight.w600))
-              ],
-            ),
-          )
-        ]));
   }
 }
