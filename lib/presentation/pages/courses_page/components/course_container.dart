@@ -18,7 +18,8 @@ class CourseContainer extends StatelessWidget {
         margin: const EdgeInsets.only(bottom: 16),
         width: double.infinity,
         decoration: const BoxDecoration(
-            color: Color.fromRGBO(246, 247, 250, 1), borderRadius: BorderRadius.all(Radius.circular(16))),
+            color: Color.fromRGBO(246, 247, 250, 1),
+            borderRadius: BorderRadius.all(Radius.circular(16))),
         child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Container(
             width: 128,
@@ -37,7 +38,10 @@ class CourseContainer extends StatelessWidget {
                 Row(
                   children: [
                     Text(course.name,
-                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black)),
+                        style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black)),
                     const SizedBox(width: 8),
                     DifficultCourse(
                       difficulty: course.difficulty,
@@ -49,19 +53,31 @@ class CourseContainer extends StatelessWidget {
                   course.description,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
-                  style: const TextStyle(fontSize: 16, color: Color.fromRGBO(107, 110, 117, 1)),
+                  style: const TextStyle(
+                      fontSize: 16, color: Color.fromRGBO(107, 110, 117, 1)),
                 ),
                 const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-                      decoration: const BoxDecoration(
-                          color: Color.fromRGBO(206, 228, 248, 1), borderRadius: BorderRadius.all(Radius.circular(8))),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 4, horizontal: 16),
+                      decoration: BoxDecoration(
+                          color: course.progress == 100
+                              ? Color.fromRGBO(188, 255, 194, 1)
+                              : Color.fromRGBO(206, 228, 248, 1),
+                          borderRadius: BorderRadius.all(Radius.circular(8))),
                       child: Text(
-                        course.progress <= 0 ? 'Не начат' : 'В процессе',
-                        style: const TextStyle(color: Color.fromRGBO(55, 114, 255, 1)),
+                        course.progress <= 0
+                            ? 'Не начат'
+                            : course.progress == 100
+                                ? 'Пройден'
+                                : 'В процессе',
+                        style: TextStyle(
+                            color: course.progress == 100
+                                ? Color.fromRGBO(93, 146, 61, 1)
+                                : Color.fromRGBO(55, 114, 255, 1)),
                       ),
                     ),
                     const SizedBox(width: 24),
@@ -73,13 +89,16 @@ class CourseContainer extends StatelessWidget {
                               barRadius: const Radius.circular(16),
                               lineHeight: 8,
                               percent: course.progress / 100,
-                              progressColor: const Color.fromRGBO(55, 114, 255, 1),
+                              progressColor:
+                                  const Color.fromRGBO(55, 114, 255, 1),
                             ),
                           ),
                           const SizedBox(width: 8),
                           Text('${course.progress}%',
                               style: const TextStyle(
-                                  color: Color.fromRGBO(58, 61, 68, 1), fontSize: 16, fontWeight: FontWeight.w600))
+                                  color: Color.fromRGBO(58, 61, 68, 1),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600))
                         ],
                       ),
                     ),
