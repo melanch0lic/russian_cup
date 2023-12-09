@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:russia_icpc/domain/repository/auth_repository.dart';
 import 'package:russia_icpc/presentation/pages/sign_up_page/cubit/sign_up_cubit.dart';
 
 import '../age_page/age_page.dart';
@@ -11,7 +10,7 @@ class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => SignUpCubit(context.read<AuthRepository>()),
+      create: (context) => SignUpCubit(),
       child: Stack(children: [
         SizedBox(
           width: double.infinity,
@@ -225,8 +224,10 @@ class _SignUpButton extends StatelessWidget {
         ),
         onPressed: state.isValid
             ? () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => const AgePage()));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => AgePage(
+                        email: state.email.value,
+                        password: state.password.value)));
               }
             : null,
         child: const Center(

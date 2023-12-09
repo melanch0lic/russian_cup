@@ -48,7 +48,7 @@ class LoginCubit extends Cubit<LoginState> {
     emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
     try {
       await _authenticationRepository.logInWithEmailAndPassword(
-        email: state.email.value,
+        login: state.email.value,
         password: state.password.value,
       );
       emit(state.copyWith(status: FormzSubmissionStatus.success));

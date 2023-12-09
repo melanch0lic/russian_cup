@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'app_state.dart';
-import 'data/models/user.dart';
 import 'domain/repository/auth_repository.dart';
 
 part 'app_event.dart';
