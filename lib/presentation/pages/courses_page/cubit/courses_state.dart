@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:russia_icpc/data/models/course_detail.dart';
 
 import '../../../../data/models/course.dart';
 
@@ -9,6 +10,7 @@ enum CourseSelectedMode { all, process }
 final class CoursesState extends Equatable {
   const CoursesState({
     this.selectedMode = CourseSelectedMode.all,
+    this.selectedCourse,
     this.courses = const [],
     this.isLoading = false,
     this.pageMode = PageMode.all,
@@ -17,6 +19,7 @@ final class CoursesState extends Equatable {
 
   final bool isLoading;
   final List<Course> courses;
+  final CourseDetail? selectedCourse;
   final CourseSelectedMode selectedMode;
   final String? errorMessage;
   final PageMode pageMode;
@@ -27,6 +30,7 @@ final class CoursesState extends Equatable {
         courses,
         isLoading,
         pageMode,
+        selectedCourse,
         errorMessage,
       ];
 
@@ -35,6 +39,7 @@ final class CoursesState extends Equatable {
     List<Course>? courses,
     bool? isLoading,
     PageMode? pageMode,
+    CourseDetail? selectedCourse,
     String? errorMessage,
   }) {
     return CoursesState(
@@ -42,6 +47,7 @@ final class CoursesState extends Equatable {
       courses: courses ?? this.courses,
       isLoading: isLoading ?? this.isLoading,
       pageMode: pageMode ?? this.pageMode,
+      selectedCourse: selectedCourse ?? this.selectedCourse,
       errorMessage: errorMessage ?? this.errorMessage,
     );
   }

@@ -30,7 +30,24 @@ class CoursesCubit extends Cubit<CoursesState> {
     }
   }
 
+  void onCourseSelected(int id) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final course = await _coursesRepository.getFullCourseInfo(id);
+      emit(state.copyWith(
+        isLoading: false,
+        selectedCourse: course,
+      ));
+    } catch (e) {
+      emit(state.copyWith(
+        isLoading: false,
+        errorMessage: e.toString(),
+      ));
+    }
+    setPageMode(PageMode.detail);
+  }
+
   void setPageMode(PageMode mode) {
-    emit(state.copyWith(pageMode: mode));
+    emit(state.copyWith(pageMode: mode, selectedCourse: null));
   }
 }

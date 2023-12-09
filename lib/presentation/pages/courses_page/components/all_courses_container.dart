@@ -63,7 +63,8 @@ class AllCoursesContainer extends StatelessWidget {
                             itemBuilder: (context, index) => InkWell(
                                   onTap: () => context
                                       .read<CoursesCubit>()
-                                      .setPageMode(PageMode.detail),
+                                      .onCourseSelected(
+                                          state.courses[index].id),
                                   child: CourseContainer(
                                     course: state.courses[index],
                                   ),

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:russia_icpc/presentation/pages/courses_page/components/course_description.dart';
 import 'package:russia_icpc/presentation/pages/courses_page/components/course_info_and_begin.dart';
 import 'package:russia_icpc/presentation/widgets/user_exit_info_widget.dart';
 
-class DescriptionCoursePage extends StatelessWidget {
-  const DescriptionCoursePage({super.key});
+import 'openable_card.dart';
+
+class DetailCoursePage extends StatelessWidget {
+  const DetailCoursePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,18 +29,26 @@ class DescriptionCoursePage extends StatelessWidget {
                         const CourseDescription(),
                         const SizedBox(height: 24),
                         Container(
-                            padding: const EdgeInsets.only(left: 24, right: 24, top: 32, bottom: 36),
+                            padding: const EdgeInsets.only(
+                                left: 24, right: 24, top: 32, bottom: 36),
                             width: double.infinity,
                             decoration: const BoxDecoration(
-                                color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(24))),
-                            child: const Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                              Text(
-                                'Программа курса',
-                                style: TextStyle(
-                                    fontSize: 24, fontWeight: FontWeight.w600, color: Color.fromRGBO(29, 31, 36, 1)),
-                              ),
-                              SizedBox(height: 24),
-                            ])),
+                                color: Colors.white,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(24))),
+                            child: const Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Программа курса',
+                                    style: TextStyle(
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.w600,
+                                        color: Color.fromRGBO(29, 31, 36, 1)),
+                                  ),
+                                  SizedBox(height: 24),
+                                  ProgramOpenableCard(),
+                                ])),
                       ],
                     ),
                   ),

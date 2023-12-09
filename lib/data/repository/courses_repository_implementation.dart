@@ -19,7 +19,7 @@ class CoursesRepositoryImplementation implements CoursesRepository {
             "course-difficulty": 1,
             "url": "3",
             "name": "c1",
-            "progress": 10
+            "progress": 3
           },
           {
             "course-id": 2,
@@ -28,7 +28,7 @@ class CoursesRepositoryImplementation implements CoursesRepository {
             "course-difficulty": 2,
             "url": "3",
             "name": "c2",
-            "progress": 12
+            "progress": 5
           },
           {
             "course-id": 3,
@@ -53,109 +53,118 @@ class CoursesRepositoryImplementation implements CoursesRepository {
   Future<CourseDetail> getFullCourseInfo(int id) async {
     try {
       await Future.delayed(Duration(milliseconds: 400));
-      final CourseDetail courseDetail = CourseDetailResponse.fromJson({
-        "error": {"code": 200},
-        "result": {
-          "description": "1",
-          "course-difficulty": 2,
-          "url": "3",
-          "name": "4",
-          "progress": 0,
-          "lessons": [
-            {
-              "lesson-id": 1,
-              "lesson-type-id": 1,
-              "course-id": 1,
-              "course-name": "",
-              "value": 4,
-              "name": "m1",
-              "passed": false,
-              "material": {"material-id": 1, "name": null, "lesson-text": "mm1"}
-            },
-            {
-              "lesson-id": 2,
-              "lesson-type-id": 2,
-              "course-id": 1,
-              "course-name": "",
-              "value": 0,
-              "name": "l1",
-              "passed": false,
-              "question": {
-                "material-id": 1,
-                "question-type": "test",
-                "question-type-id": "1",
-                "quest-text": "?",
-                "src-url": "1",
-                "answer": [
-                  {
-                    "answer-id": 1,
-                    "right": false,
-                    "answer-text": "--",
-                    "question-id": 1,
-                    "src-url": ""
-                  },
-                  {
-                    "answer-id": 2,
-                    "right": true,
-                    "answer-text": "+",
-                    "question-id": 1,
-                    "src-url": ""
-                  },
-                  {
-                    "answer-id": 3,
-                    "right": false,
-                    "answer-text": "=",
-                    "question-id": 1,
-                    "src-url": ""
-                  },
-                  {
-                    "answer-id": 4,
-                    "right": false,
-                    "answer-text": "/",
-                    "question-id": 1,
-                    "src-url": "photo ans"
-                  }
-                ]
-              }
-            },
-            {
-              "lesson-id": 3,
-              "lesson-type-id": 1,
-              "course-id": 1,
-              "course-name": "",
-              "value": 12,
-              "name": "m2",
-              "passed": false,
-              "material": {"material-id": 2, "name": null, "lesson-text": "mm3"}
-            },
-            {
-              "lesson-id": 4,
-              "lesson-type-id": 2,
-              "course-id": 1,
-              "course-name": "",
-              "value": 13,
-              "name": "l2",
-              "passed": false,
-              "question": {
-                "material-id": 3,
-                "question-type": "test",
-                "question-type-id": "1",
-                "quest-text": "?",
-                "src-url": "123",
-                "answer": [
-                  {
-                    "answer-id": 7,
-                    "right": true,
-                    "answer-text": "иволга",
-                    "question-id": 3,
-                    "src-url": ""
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }).result;
+      // CourseDetail courseDetail = CourseDetailResponse.fromJson({
+      //   'error': {"code": 200},
+      //   'result': {
+      //     "description": "1",
+      //     "course-difficulty": 2,
+      //     "url": "3",
+      //     "name": "4",
+      //     "progress": 0,
+      //     "lessons": [
+      //       {
+      //         "lesson-id": 1,
+      //         "lesson-type-id": 1,
+      //         "course-id": 1,
+      //         "course-name": "",
+      //         "value": 4,
+      //         "name": "m1",
+      //         "passed": false,
+      //         "material": {"material-id": 1, "name": null, "lesson-text": "mm1"}
+      //       },
+      //       {
+      //         "lesson-id": 2,
+      //         "lesson-type-id": 2,
+      //         "course-id": 1,
+      //         "course-name": "",
+      //         "value": 0,
+      //         "name": "l1",
+      //         "passed": false,
+      //         "question": {
+      //           "material-id": 1,
+      //           "question-type": "test",
+      //           "question-type-id": "1",
+      //           "quest-text": "?",
+      //           "src-url": "1",
+      //           "answer": [
+      //             {
+      //               "answer-id": 1,
+      //               "right": false,
+      //               "answer-text": "--",
+      //               "question-id": 1,
+      //               "src-url": ""
+      //             },
+      //             {
+      //               "answer-id": 2,
+      //               "right": true,
+      //               "answer-text": "+",
+      //               "question-id": 1,
+      //               "src-url": ""
+      //             },
+      //             {
+      //               "answer-id": 3,
+      //               "right": false,
+      //               "answer-text": "=",
+      //               "question-id": 1,
+      //               "src-url": ""
+      //             },
+      //             {
+      //               "answer-id": 4,
+      //               "right": false,
+      //               "answer-text": "/",
+      //               "question-id": 1,
+      //               "src-url": "photo ans"
+      //             }
+      //           ]
+      //         }
+      //       },
+      //       {
+      //         "lesson-id": 3,
+      //         "lesson-type-id": 1,
+      //         "course-id": 1,
+      //         "course-name": "",
+      //         "value": 12,
+      //         "name": "m2",
+      //         "passed": false,
+      //         "material": {"material-id": 2, "name": null, "lesson-text": "mm3"}
+      //       },
+      //       {
+      //         "lesson-id": 4,
+      //         "lesson-type-id": 2,
+      //         "course-id": 1,
+      //         "course-name": "",
+      //         "value": 13,
+      //         "name": "l2",
+      //         "passed": false,
+      //         "question": {
+      //           "material-id": 3,
+      //           "question-type": "test",
+      //           "question-type-id": "1",
+      //           "quest-text": "?",
+      //           "src-url": "123",
+      //           "answer": [
+      //             {
+      //               "answer-id": 7,
+      //               "right": true,
+      //               "answer-text": "иволга",
+      //               "question-id": 3,
+      //               "src-url": ""
+      //             }
+      //           ]
+      //         }
+      //       }
+      //     ]
+      //   }
+      // }).result;
+      CourseDetail courseDetail = CourseDetail(
+        name: 'Основы кибербезопасности: организация и правовое регулирование',
+        description:
+            "Курс 'Основы кибербезопасности: организация и правовое регулирование' поможет узнать о том как организована государственная система обнаружения, предупреждения и ликвидации последствий компьютерных атак на информационные ресурсы Российской Федерации, какова ее структура и задачи. Курс создан с опорой на обширный перечень нормативно правовых актов регламентирующих эту сферу. Здесь затронуты вопросы международного сотрудничества и международной стандартизации сферы обеспечения кибербезопасности",
+        progress: 3,
+        url: '3',
+        diffuculty: 1,
+        lessons: [],
+      );
       return courseDetail;
     } catch (e) {
       throw Exception(e);

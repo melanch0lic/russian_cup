@@ -86,7 +86,7 @@ class CourseContainer extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(width: 8),
-                          Text('${course.progress / 100}%',
+                          Text('${course.progress}%',
                               style: TextStyle(
                                   color: Color.fromRGBO(58, 61, 68, 1),
                                   fontSize: 16,
