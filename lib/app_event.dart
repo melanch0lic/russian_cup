@@ -10,6 +10,4 @@ final class AppLogoutRequested extends AppEvent {
 
 final class AppLoginRequested extends AppEvent {
   const AppLoginRequested();
-
-  // final User user;
 }

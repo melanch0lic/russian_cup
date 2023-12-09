@@ -101,7 +101,8 @@ class AgePage extends StatelessWidget {
                         ),
                         onPressed: state.isValid
                             ? () =>
-                                context.read<AgeCubit>().signUpFormSubmitted()
+                                Navigator.pushReplacementNamed(context, '/tabs')
+                            // context.read<AgeCubit>().signUpFormSubmitted()
                             : null,
                         child: const Center(
                             child: Padding(
