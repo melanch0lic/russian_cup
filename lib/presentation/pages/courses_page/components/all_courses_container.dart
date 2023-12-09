@@ -11,8 +11,19 @@ class AllCoursesContainer extends StatelessWidget {
       width: double.infinity,
       decoration: const BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(24))),
       child: const Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
+        Text(
+          'Курсы',
+          style: TextStyle(color: Color.fromRGBO(29, 31, 36, 1), fontWeight: FontWeight.w600, fontSize: 24),
+        ),
+        SizedBox(height: 24),
         Row(
-          children: [Text('Все курсы'), SizedBox(width: 32), Text('В процессе')],
+          children: [
+            Text('Все курсы',
+                style: TextStyle(color: Color.fromRGBO(29, 31, 36, 1), fontWeight: FontWeight.w600, fontSize: 16)),
+            SizedBox(width: 32),
+            Text('В процессе',
+                style: TextStyle(color: Color.fromRGBO(29, 31, 36, 1), fontWeight: FontWeight.w600, fontSize: 16))
+          ],
         ),
         SizedBox(height: 16),
         // LinearProgressIndicator(),

@@ -28,6 +28,8 @@ class CoursesPage extends StatelessWidget {
                     Expanded(
                       child: Column(
                         children: [
+                          const TotalProgressContainer(),
+                          const SizedBox(height: 24),
                           Container(
                             padding: const EdgeInsets.only(left: 24, right: 24, top: 32, bottom: 36),
                             width: double.infinity,
@@ -46,8 +48,6 @@ class CoursesPage extends StatelessWidget {
                               ],
                             ),
                           ),
-                          const SizedBox(height: 24),
-                          const TotalProgressContainer(),
                         ],
                       ),
                     )
