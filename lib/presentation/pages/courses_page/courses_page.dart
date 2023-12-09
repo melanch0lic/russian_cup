@@ -7,7 +7,7 @@ import 'package:russia_icpc/presentation/pages/courses_page/components/total_pro
 import 'package:russia_icpc/presentation/pages/courses_page/cubit/courses_cubit.dart';
 import 'package:russia_icpc/presentation/widgets/user_exit_info_widget.dart';
 
-import 'components/content_course_page.dart';
+import 'components/detail_course_page.dart';
 import 'cubit/courses_state.dart';
 
 class CoursesPage extends StatelessWidget {
@@ -19,7 +19,7 @@ class CoursesPage extends StatelessWidget {
       create: (context) => CoursesCubit(context.read<CoursesRepository>()),
       child: BlocBuilder<CoursesCubit, CoursesState>(
         builder: (context, state) => state.pageMode == PageMode.detail
-            ? DescriptionCoursePage()
+            ? DetailCoursePage()
             : Scaffold(
                 backgroundColor: const Color.fromRGBO(246, 247, 249, 1),
                 body: SingleChildScrollView(

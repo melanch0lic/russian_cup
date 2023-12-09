@@ -10,13 +10,18 @@ class LastLeaksContainer extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(left: 24, right: 24, top: 32, bottom: 20),
       width: double.infinity,
-      decoration: const BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(24))),
+      decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(24))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
             'Последние утечки данных',
-            style: TextStyle(color: Color.fromRGBO(29, 31, 36, 1), fontWeight: FontWeight.w600, fontSize: 24),
+            style: TextStyle(
+                color: Color.fromRGBO(29, 31, 36, 1),
+                fontWeight: FontWeight.w600,
+                fontSize: 24),
           ),
           const SizedBox(height: 24),
           ListView.builder(
@@ -25,7 +30,10 @@ class LastLeaksContainer extends StatelessWidget {
               itemCount: leakList.length,
               itemBuilder: (context, index) {
                 return Column(
-                  children: [_LeakContainer(leak: leakList[index]), const SizedBox(height: 16)],
+                  children: [
+                    _LeakContainer(leak: leakList[index]),
+                    const SizedBox(height: 16)
+                  ],
                 );
               }),
         ],
@@ -47,17 +55,24 @@ class _LeakContainer extends StatelessWidget {
           backgroundImage: AssetImage(leak.assetImage),
         ),
         const SizedBox(width: 16),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(leak.title,
-                style:
-                    const TextStyle(color: Color.fromRGBO(29, 31, 36, 1), fontWeight: FontWeight.w600, fontSize: 20)),
-            const SizedBox(height: 4),
-            Text(leak.description,
-                style:
-                    const TextStyle(color: Color.fromRGBO(29, 31, 36, 1), fontWeight: FontWeight.w400, fontSize: 18)),
-          ],
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(leak.title,
+                  style: const TextStyle(
+                      color: Color.fromRGBO(29, 31, 36, 1),
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20)),
+              const SizedBox(height: 4),
+              Text(leak.description,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                      color: Color.fromRGBO(29, 31, 36, 1),
+                      fontWeight: FontWeight.w400,
+                      fontSize: 18)),
+            ],
+          ),
         )
       ],
     );
@@ -69,5 +84,8 @@ class Leak {
   final String title;
   final String description;
 
-  Leak({required this.assetImage, required this.title, required this.description});
+  Leak(
+      {required this.assetImage,
+      required this.title,
+      required this.description});
 }
