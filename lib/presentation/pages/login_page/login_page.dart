@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:formz/formz.dart';
 import 'package:russia_icpc/domain/repository/auth_repository.dart';
 import 'package:russia_icpc/presentation/pages/sign_up_page/sign_up_page.dart';
 
-import '../tabs_page/tabs_page.dart';
 import 'cubit/login_cubit.dart';
 
 class LoginPage extends StatelessWidget {
@@ -164,7 +164,17 @@ class _PasswordInput extends StatelessWidget {
 class _LoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LoginCubit, LoginState>(
+    return BlocConsumer<LoginCubit, LoginState>(
+      listener: (context, state) {
+        if (state.status == FormzSubmissionStatus.success) {
+          Navigator.pushReplacementNamed(context, '/tabs');
+        }
+        if (state.status == FormzSubmissionStatus.failure) {
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            content: Text('Неверный логин или пароль'),
+          ));
+        }
+      },
       builder: (context, state) => ElevatedButton(
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
@@ -174,7 +184,7 @@ class _LoginButton extends StatelessWidget {
         ),
         onPressed: state.isValid
             ? () {
-                Navigator.pushReplacementNamed(context, '/tabs');
+                context.read<LoginCubit>().logInWithCredentials();
               }
             : null,
         child: const Center(

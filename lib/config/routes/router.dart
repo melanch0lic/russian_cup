@@ -17,8 +17,8 @@ class CustomRouter {
   //     Handler(handlerFunc: (context, parameters) => const HomePage());
   static final Handler _loginHandler =
       Handler(handlerFunc: (context, parameters) => const LoginPage());
-  static final Handler _ageHanler =
-      Handler(handlerFunc: (context, parameters) => const AgePage());
+  // static final Handler _ageHanler =
+  //     Handler(handlerFunc: (context, parameters) => const AgePage());
 
   static void setupRouter() {
     router.define('/',
@@ -29,7 +29,7 @@ class CustomRouter {
     //     handler: _homeHandler, transitionType: TransitionType.fadeIn);
     router.define('/login',
         handler: _loginHandler, transitionType: TransitionType.fadeIn);
-    router.define('/ageconfirm',
-        handler: _ageHanler, transitionType: TransitionType.fadeIn);
+    // router.define('/ageconfirm',
+    //     handler: _ageHanler, transitionType: TransitionType.fadeIn);
   }
 }

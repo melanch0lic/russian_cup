@@ -1,36 +1,19 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:dio/dio.dart';
+import 'package:russia_icpc/data/models/request_body/sign_in_body_request.dart';
+import 'package:russia_icpc/data/models/responses/auth_response.dart';
+import 'package:retrofit/retrofit.dart';
 
-import '../models/responses/questions_counry_response.dart';
+import '../models/request_body/sign_up_body_request.dart';
 
-final Provider apiClientProvider = Provider<ApiClient>((ref) {
-  return ApiClient();
-});
+part 'api_client.g.dart';
 
-class ApiClient {
-  Future<QuestionsCountryResponse> getQuestions() async {
-    await Future.delayed(const Duration(seconds: 2));
-    return QuestionsCountryResponse.fromJson({
-      'result': [
-        {
-          'id': 1,
-          'name': ['Италия', 'Германия', 'Испания', 'Франция'],
-          'image_src': 'assets/icons/FR.svg',
-          'correct_name': 'Франция',
-        },
-        {
-          'id': 2,
-          'name': ['Италия', 'Германия', 'Испания', 'Франция'],
-          'image_src': 'assets/icons/GR.svg',
-          'correct_name': 'Германия',
-        },
-        {
-          'id': 3,
-          'name': ['Италия', 'Германия', 'Испания', 'Франция'],
-          'image_src': 'assets/icons/IT.svg',
-          'correct_name': 'Италия',
-        }
-      ],
-      'error': null,
-    });
-  }
+@RestApi(baseUrl: 'https://194.87.232.6/api/')
+abstract class ApiClient {
+  factory ApiClient(Dio dio, {String baseUrl}) = _ApiClient;
+
+  @POST('auth/sign-up/')
+  Future<AuthResponse> signUp(@Body() SignUpBodyRequest body);
+
+  @POST('auth/sign-in/')
+  Future<AuthResponse> logIn(@Body() SignInBodyRequest body);
 }

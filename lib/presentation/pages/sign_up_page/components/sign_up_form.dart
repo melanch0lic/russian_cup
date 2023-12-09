@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 
+import '../../age_page/age_page.dart';
 import '../../login_page/login_page.dart';
 import '../cubit/sign_up_cubit.dart';
 
@@ -122,7 +123,12 @@ class _SignUpButton extends StatelessWidget {
                   backgroundColor: const Color.fromRGBO(107, 78, 255, 1),
                 ),
                 onPressed: state.isValid
-                    ? () => context.read<SignUpCubit>().signUpFormSubmitted()
+                    ? () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (_) => AgePage(
+                                email: state.email.value,
+                                password: state.password.value)));
+                      }
                     : null,
                 child: const Center(
                     child: Padding(
