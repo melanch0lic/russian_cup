@@ -15,16 +15,15 @@ class CourseContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         padding: const EdgeInsets.all(16),
-        margin: EdgeInsets.only(bottom: 16),
+        margin: const EdgeInsets.only(bottom: 16),
         width: double.infinity,
         decoration: const BoxDecoration(
-            color: Color.fromRGBO(246, 247, 250, 1),
-            borderRadius: BorderRadius.all(Radius.circular(16))),
+            color: Color.fromRGBO(246, 247, 250, 1), borderRadius: BorderRadius.all(Radius.circular(16))),
         child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Container(
             width: 128,
             height: 128,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/images/test_1.png'),
                 fit: BoxFit.fill,
@@ -38,10 +37,7 @@ class CourseContainer extends StatelessWidget {
                 Row(
                   children: [
                     Text(course.name,
-                        style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.black)),
+                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black)),
                     const SizedBox(width: 8),
                     DifficultCourse(
                       difficulty: course.difficulty,
@@ -53,23 +49,19 @@ class CourseContainer extends StatelessWidget {
                   course.description,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
-                  style: const TextStyle(
-                      fontSize: 16, color: Color.fromRGBO(107, 110, 117, 1)),
+                  style: const TextStyle(fontSize: 16, color: Color.fromRGBO(107, 110, 117, 1)),
                 ),
                 const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 4, horizontal: 16),
+                      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
                       decoration: const BoxDecoration(
-                          color: Color.fromRGBO(206, 228, 248, 1),
-                          borderRadius: BorderRadius.all(Radius.circular(8))),
+                          color: Color.fromRGBO(206, 228, 248, 1), borderRadius: BorderRadius.all(Radius.circular(8))),
                       child: Text(
                         course.progress <= 0 ? 'Не начат' : 'В процессе',
-                        style: const TextStyle(
-                            color: Color.fromRGBO(55, 114, 255, 1)),
+                        style: const TextStyle(color: Color.fromRGBO(55, 114, 255, 1)),
                       ),
                     ),
                     const SizedBox(width: 24),
@@ -81,16 +73,13 @@ class CourseContainer extends StatelessWidget {
                               barRadius: const Radius.circular(16),
                               lineHeight: 8,
                               percent: course.progress / 100,
-                              progressColor:
-                                  const Color.fromRGBO(55, 114, 255, 1),
+                              progressColor: const Color.fromRGBO(55, 114, 255, 1),
                             ),
                           ),
                           const SizedBox(width: 8),
                           Text('${course.progress}%',
-                              style: TextStyle(
-                                  color: Color.fromRGBO(58, 61, 68, 1),
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w600))
+                              style: const TextStyle(
+                                  color: Color.fromRGBO(58, 61, 68, 1), fontSize: 16, fontWeight: FontWeight.w600))
                         ],
                       ),
                     ),
