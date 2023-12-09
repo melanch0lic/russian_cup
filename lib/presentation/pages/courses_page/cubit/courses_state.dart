@@ -3,7 +3,7 @@ import 'package:russia_icpc/data/models/course_detail.dart';
 
 import '../../../../data/models/course.dart';
 
-enum PageMode { all, detail }
+enum PageMode { all, detail, study }
 
 enum CourseSelectedMode { all, process }
 

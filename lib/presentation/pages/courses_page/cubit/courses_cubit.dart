@@ -48,6 +48,10 @@ class CoursesCubit extends Cubit<CoursesState> {
   }
 
   void setPageMode(PageMode mode) {
+    if (mode == PageMode.study) {
+      emit(state.copyWith(pageMode: mode));
+      return;
+    }
     emit(state.copyWith(pageMode: mode, selectedCourse: null));
   }
 }

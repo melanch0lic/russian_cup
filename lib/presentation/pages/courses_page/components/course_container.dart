@@ -63,13 +63,21 @@ class CourseContainer extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.symmetric(
                           vertical: 4, horizontal: 16),
-                      decoration: const BoxDecoration(
-                          color: Color.fromRGBO(206, 228, 248, 1),
+                      decoration: BoxDecoration(
+                          color: course.progress == 100
+                              ? Color.fromRGBO(188, 255, 194, 1)
+                              : Color.fromRGBO(206, 228, 248, 1),
                           borderRadius: BorderRadius.all(Radius.circular(8))),
                       child: Text(
-                        course.progress <= 0 ? 'Не начат' : 'В процессе',
-                        style: const TextStyle(
-                            color: Color.fromRGBO(55, 114, 255, 1)),
+                        course.progress <= 0
+                            ? 'Не начат'
+                            : course.progress == 100
+                                ? 'Пройден'
+                                : 'В процессе',
+                        style: TextStyle(
+                            color: course.progress == 100
+                                ? Color.fromRGBO(93, 146, 61, 1)
+                                : Color.fromRGBO(55, 114, 255, 1)),
                       ),
                     ),
                     const SizedBox(width: 24),
