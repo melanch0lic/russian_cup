@@ -10,6 +10,7 @@ import 'package:russia_icpc/presentation/pages/news_page/news_page.dart';
 import 'package:russia_icpc/presentation/pages/tabs_page/cubit/tabs_cubit.dart';
 import 'package:russia_icpc/presentation/pages/test_page/test_page.dart';
 
+import '../../shop_page/shop_page.dart';
 import 'components/side_menu.dart';
 
 class TabsPageDesktop extends StatelessWidget {
@@ -37,6 +38,7 @@ class TabsPageDesktop extends StatelessWidget {
                       CoursesPage(),
                       TestPage(),
                       AchiviementsPage(),
+                      ShopPage(),
                       NewsPage(),
                       ArticlesPage(),
                     ],
