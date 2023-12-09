@@ -51,6 +51,8 @@ dependencies:
   dio: ^5.4.0
   skeletonizer: ^0.8.0
   swipe_cards: ^2.0.0+1
+  youtube_player_iframe: ^4.0.4
+  flutter_markdown: ^0.6.18+2
 dev_dependencies:
   flutter_test:
     sdk: flutter

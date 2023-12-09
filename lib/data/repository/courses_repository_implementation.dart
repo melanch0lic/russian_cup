@@ -19,7 +19,7 @@ class CoursesRepositoryImplementation implements CoursesRepository {
             "course-difficulty": 1,
             "url": "3",
             "name": "c1",
-            "progress": 3
+            "progress": 100
           },
           {
             "course-id": 2,

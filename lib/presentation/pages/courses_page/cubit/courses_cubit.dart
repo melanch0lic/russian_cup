@@ -3,6 +3,8 @@ import 'package:russia_icpc/domain/repository/courses_repository.dart';
 
 import 'courses_state.dart';
 
+enum AnswerTypeResult { right, wrong, none }
+
 class CoursesCubit extends Cubit<CoursesState> {
   final CoursesRepository _coursesRepository;
 
@@ -48,6 +50,20 @@ class CoursesCubit extends Cubit<CoursesState> {
   }
 
   void setPageMode(PageMode mode) {
+    if (mode == PageMode.study) {
+      emit(state.copyWith(pageMode: mode));
+      return;
+    }
     emit(state.copyWith(pageMode: mode, selectedCourse: null));
+  }
+
+  void nextQuestion() {
+    emit(
+        state.copyWith(selectedQuestionIndex: state.selectedQuestionIndex + 1));
+  }
+
+  void previousQuestion() {
+    emit(
+        state.copyWith(selectedQuestionIndex: state.selectedQuestionIndex - 1));
   }
 }
