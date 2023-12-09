@@ -34,7 +34,7 @@ class AchiviementContainer extends StatelessWidget {
             shrinkWrap: true,
             physics: const ScrollPhysics(),
             itemBuilder: (context, index) {
-              return _AchivCard(
+              return AchivCard(
                 achievement: achievementList[index],
               );
             },
@@ -45,12 +45,12 @@ class AchiviementContainer extends StatelessWidget {
   }
 }
 
-class _AchivCard extends StatelessWidget {
-  const _AchivCard({super.key, required this.achievement});
+class AchivCard extends StatelessWidget {
+  const AchivCard({super.key, required this.achievement});
   final Achievement achievement;
   @override
   Widget build(BuildContext context) {
-    return achievement.isCompleted
+    return !achievement.isCompleted
         ? Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
             width: double.infinity,

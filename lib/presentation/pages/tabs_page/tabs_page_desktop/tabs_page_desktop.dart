@@ -7,6 +7,7 @@ import 'package:russia_icpc/presentation/pages/courses_page/courses_page.dart';
 import 'package:russia_icpc/presentation/pages/flash_card_page/flash_card_page.dart';
 import 'package:russia_icpc/presentation/pages/home_page/home_page.dart';
 import 'package:russia_icpc/presentation/pages/news_page/news_page.dart';
+import 'package:russia_icpc/presentation/pages/swipe_card_page/swipe_card_page.dart';
 import 'package:russia_icpc/presentation/pages/tabs_page/cubit/tabs_cubit.dart';
 import 'package:russia_icpc/presentation/pages/test_page/test_page.dart';
 
@@ -16,8 +17,7 @@ import 'components/side_menu.dart';
 class TabsPageDesktop extends StatelessWidget {
   const TabsPageDesktop({super.key});
 
-  static Page<void> page() =>
-      const MaterialPage<void>(child: TabsPageDesktop());
+  static Page<void> page() => const MaterialPage<void>(child: TabsPageDesktop());
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +43,7 @@ class TabsPageDesktop extends StatelessWidget {
                       ShopPage(),
                       NewsPage(),
                       ArticlesPage(),
+                      SwipeCardPage()
                     ],
                   )))
         ],

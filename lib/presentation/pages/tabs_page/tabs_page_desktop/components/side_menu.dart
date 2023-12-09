@@ -21,10 +21,16 @@ class SideMenu extends StatelessWidget {
         child: BlocBuilder<TabsCubit, TabsState>(
           builder: (context, state) => Column(
             children: [
-              const Center(
-                  child: FlutterLogo(
-                size: 64,
-              )),
+              Center(
+                child: Container(
+                    width: 210,
+                    height: 70,
+                    decoration: const BoxDecoration(
+                        image: DecorationImage(
+                      image: AssetImage('assets/images/logo.png'),
+                      fit: BoxFit.fill,
+                    ))),
+              ),
               const SizedBox(height: 32),
               SideMenuItem(
                 index: 0,
@@ -73,6 +79,12 @@ class SideMenu extends StatelessWidget {
                 isActive: state.selectedIndex == 7 ? true : false,
                 svgUrl: 'assets/svg_icons/articles.svg',
                 title: 'Статьи',
+              ),
+              SideMenuItem(
+                index: 8,
+                isActive: state.selectedIndex == 8 ? true : false,
+                svgUrl: 'assets/svg_icons/articles.svg',
+                title: 'Практика',
               ),
             ],
           ),

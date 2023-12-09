@@ -6,6 +6,7 @@ import 'package:russia_icpc/presentation/pages/courses_page/components/direction
 import 'package:russia_icpc/presentation/pages/courses_page/components/study_course_page.dart';
 import 'package:russia_icpc/presentation/pages/courses_page/components/total_progress_container.dart';
 import 'package:russia_icpc/presentation/pages/courses_page/cubit/courses_cubit.dart';
+import 'package:russia_icpc/presentation/widgets/all_lines_learn.dart';
 import 'package:russia_icpc/presentation/widgets/user_exit_info_widget.dart';
 
 import 'components/detail_course_page.dart';
@@ -20,6 +21,7 @@ class CoursesPage extends StatelessWidget {
       create: (context) => CoursesCubit(context.read<CoursesRepository>()),
       child: BlocBuilder<CoursesCubit, CoursesState>(
         builder: (context, state) => state.pageMode == PageMode.detail
+
             ? DetailCoursePage()
             : state.pageMode == PageMode.study
                 ? StudyCoursePage()
