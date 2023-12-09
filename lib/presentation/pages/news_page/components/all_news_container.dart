@@ -12,7 +12,7 @@ class AllNewsContainer extends StatelessWidget {
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
           const Text(
             'Новости кибербезопасности',
-            style: TextStyle(color: Color.fromRGBO(29, 31, 36, 1), fontWeight: FontWeight.w600, fontSize: 24),
+            style: TextStyle(color: Color.fromRGBO(29, 31, 36, 1), fontWeight: FontWeight.w700, fontSize: 32),
           ),
           const SizedBox(height: 24),
           const Row(

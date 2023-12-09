@@ -53,12 +53,18 @@ class SideMenu extends StatelessWidget {
               SideMenuItem(
                 index: 4,
                 isActive: state.selectedIndex == 4 ? true : false,
-                svgUrl: 'assets/svg_icons/news.svg',
-                title: 'Новости',
+                svgUrl: 'assets/svg_icons/shop.svg',
+                title: 'Магазин',
               ),
               SideMenuItem(
                 index: 5,
                 isActive: state.selectedIndex == 5 ? true : false,
+                svgUrl: 'assets/svg_icons/news.svg',
+                title: 'Новости',
+              ),
+              SideMenuItem(
+                index: 6,
+                isActive: state.selectedIndex == 6 ? true : false,
                 svgUrl: 'assets/svg_icons/articles.svg',
                 title: 'Статьи',
               ),
