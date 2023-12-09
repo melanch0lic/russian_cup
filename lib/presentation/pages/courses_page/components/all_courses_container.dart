@@ -13,63 +13,45 @@ class AllCoursesContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(left: 24, right: 24, top: 32),
-      margin: EdgeInsets.only(bottom: 24),
+      margin: const EdgeInsets.only(bottom: 24),
       width: double.infinity,
-      decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.all(Radius.circular(24))),
-      child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
+      decoration: const BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(24))),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
+        const Text(
+          'Курсы',
+          style: TextStyle(color: Color.fromRGBO(29, 31, 36, 1), fontWeight: FontWeight.w600, fontSize: 24),
+        ),
+        const SizedBox(height: 24),
+        const Row(
           children: [
-            Text(
-              'Курсы',
-              style: TextStyle(
-                  color: Color.fromRGBO(29, 31, 36, 1),
-                  fontWeight: FontWeight.w600,
-                  fontSize: 24),
-            ),
-            SizedBox(height: 24),
-            Row(
-              children: [
-                Text('Все курсы',
-                    style: TextStyle(
-                        color: Color.fromRGBO(29, 31, 36, 1),
-                        fontWeight: FontWeight.w600,
-                        fontSize: 16)),
-                SizedBox(width: 32),
-                Text('В процессе',
-                    style: TextStyle(
-                        color: Color.fromRGBO(29, 31, 36, 1),
-                        fontWeight: FontWeight.w600,
-                        fontSize: 16))
-              ],
-            ),
-            SizedBox(height: 16),
-            // LinearProgressIndicator(),
-            BlocBuilder<CoursesCubit, CoursesState>(
-                builder: (context, state) => SizedBox(
-                    height: MediaQuery.sizeOf(context).height * 0.8,
-                    child: state.isLoading
-                        ? Center(
-                            child: SizedBox(
-                                width: 100,
-                                height: 100,
-                                child: CircularProgressIndicator(
-                                    color: Color.fromRGBO(55, 114, 255, 1))),
-                          )
-                        : ListView.builder(
-                            itemCount: state.courses.length,
-                            itemBuilder: (context, index) => InkWell(
-                                  onTap: () => context
-                                      .read<CoursesCubit>()
-                                      .onCourseSelected(
-                                          state.courses[index].id),
-                                  child: CourseContainer(
-                                    course: state.courses[index],
-                                  ),
-                                )))),
-          ]),
+            Text('Все курсы',
+                style: TextStyle(color: Color.fromRGBO(29, 31, 36, 1), fontWeight: FontWeight.w600, fontSize: 16)),
+            SizedBox(width: 32),
+            Text('В процессе',
+                style: TextStyle(color: Color.fromRGBO(29, 31, 36, 1), fontWeight: FontWeight.w600, fontSize: 16))
+          ],
+        ),
+        const SizedBox(height: 16),
+        // LinearProgressIndicator(),
+        BlocBuilder<CoursesCubit, CoursesState>(
+            builder: (context, state) => SizedBox(
+                height: MediaQuery.sizeOf(context).height * 0.8,
+                child: state.isLoading
+                    ? const Center(
+                        child: SizedBox(
+                            width: 100,
+                            height: 100,
+                            child: CircularProgressIndicator(color: Color.fromRGBO(55, 114, 255, 1))),
+                      )
+                    : ListView.builder(
+                        itemCount: state.courses.length,
+                        itemBuilder: (context, index) => InkWell(
+                              onTap: () => context.read<CoursesCubit>().onCourseSelected(state.courses[index].id),
+                              child: CourseContainer(
+                                course: state.courses[index],
+                              ),
+                            )))),
+      ]),
     );
   }
 }

@@ -50,6 +50,7 @@ dependencies:
   retrofit: ^4.0.3
   dio: ^5.4.0
   skeletonizer: ^0.8.0
+  swipe_cards: ^2.0.0+1
 dev_dependencies:
   flutter_test:
     sdk: flutter
