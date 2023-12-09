@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:russia_icpc/presentation/pages/achiviements_page/achiviements_page.dart';
 import 'package:russia_icpc/presentation/pages/articles_page/articles_page.dart';
 import 'package:russia_icpc/presentation/pages/courses_page/courses_page.dart';
+import 'package:russia_icpc/presentation/pages/flash_card_page/flash_card_page.dart';
 import 'package:russia_icpc/presentation/pages/home_page/home_page.dart';
 import 'package:russia_icpc/presentation/pages/news_page/news_page.dart';
 import 'package:russia_icpc/presentation/pages/tabs_page/cubit/tabs_cubit.dart';
@@ -37,6 +38,7 @@ class TabsPageDesktop extends StatelessWidget {
                       HomePage(),
                       CoursesPage(),
                       TestPage(),
+                      FlashCardPage(),
                       AchiviementsPage(),
                       ShopPage(),
                       NewsPage(),
