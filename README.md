@@ -1,16 +1,96 @@
-# russia_icpc
+# Locky
 
-A new Flutter project.
+Locky - образовательная платформу с элементами геймификации, созданная с целью обеспечения пользователей знаниями по кибербезопасности. Цель приложения - помочь людям защитить себя от мошенников и кибератак, предоставляя курсы на различные уровни сложности.
 
-## Getting Started
+## О проекте
 
-This project is a starting point for a Flutter application.
+Этот проект был разработан в рамках первого чемпионата России по спортивному программированию в дисциплине "Продуктовое программирование". Он представляет собой приложение, написанное на Flutter и предназначенное для использования на веб-платформе.
 
-A few resources to get you started if this is your first Flutter project:
+## Функциональность
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Проект предоставляет следующие ключевые функции:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **Авторизация и регистрация пользователя:** Возможность входа в систему и создания нового аккаунта.
+
+- **Прохождение курсов:** Пользователи могут пройти обучающие курсы, предоставляемые приложением.
+
+- **Тестирование:** Возможность прохождения тестов для проверки уровня знаний.
+
+- **Флешкарты:** Интерактивные карточки для запоминания информации.
+
+- **Новости и статьи:** Пользователи могут ознакомиться с последними новостями и статьями в области кибербезопасности.
+
+## Технологии и архитектура
+
+Проект написан с использованием Flutter и соблюдением принципов чистой архитектуры. Для управления состоянием приложения используется паттерн Bloc.
+
+## Скриншоты
+<img width="1512" alt="Снимок экрана 2024-01-20 в 15 29 36" src="https://github.com/melanch0lic/russian_cup/assets/56769175/b604576d-8ebf-4532-9213-05e97ba9f2a6">
+<img width="1512" alt="Снимок экрана 2024-01-20 в 15 32 29" src="https://github.com/melanch0lic/russian_cup/assets/56769175/7dac644e-601c-4f72-a94b-45959bc9c4df">
+<img width="1512" alt="Снимок экрана 2024-01-20 в 15 33 53" src="https://github.com/melanch0lic/russian_cup/assets/56769175/ad248fc0-f06e-4187-afbc-1bd0f701a471">
+<img width="1512" alt="Снимок экрана 2024-01-20 в 15 34 41" src="https://github.com/melanch0lic/russian_cup/assets/56769175/c3bd849c-6c97-4c16-bd58-2ea67f3d9807">
+
+
+## Зависимости
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  equatable: ^2.0.5
+  url_strategy: ^0.2.0
+  fluro: ^2.0.5
+  responsive_builder: ^0.7.0
+  freezed: ^2.4.5
+  formz: ^0.6.1
+  simple_circular_progress_bar: ^1.0.2
+  flutter_bloc: ^8.1.3
+  percent_indicator: ^4.2.3
+  json_annotation: ^4.8.1
+  flutter_svg: ^2.0.9
+  flutter_secure_storage: ^9.0.0
+  retrofit: ^4.0.3
+  dio: ^5.4.0
+  skeletonizer: ^0.8.0
+  swipe_cards: ^2.0.0+1
+  youtube_player_iframe: ^4.0.4
+  flutter_markdown: ^0.6.18+2
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  build_runner: ^2.4.7
+  json_serializable: ^6.7.1
+  retrofit_generator: ">=7.0.0 <8.0.0"
+```
+## Установка и запуск
+
+### Шаг 1: Склонировать репозиторий
+
+```bash
+git clone https://github.com/melanch0lic/russian_cup.git
+```
+
+### Шаг 2: Перейти в директорию проекта
+
+```bash
+cd russian_cup
+```
+
+### Шаг 3: Установить зависимости
+
+```bash
+flutter pub get
+```
+
+### Шаг 4: Запустить генерацию необходимых файлов
+
+```bash
+flutter packages pub run build_runner build --delete-conflicting-outputs 
+```
+
+### Шаг 5: Запустить приложение
+
+```bash
+flutter run
+```
+
